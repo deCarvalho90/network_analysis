@@ -1,0 +1,42 @@
+The program "redecrit1mc13.for" is used to calculate the network distance of the networks generated for all identity thresholds (0 through 100%).
+
+The input file for this program is an identity matrix, where: 
+- the matrix is simmetrical;
+- all values are integers;
+- the main diagonal is composed by '0's
+
+### Step 1 - Creating the .dat file ###
+Once the input file is ready, open the file "redecrit1mc13.dat" and edit it with information about your input file:
+Line 1: contains information about number of lines in your matrix (number of species/sequences/genes), followed by the maximum number of links or total number of sequences(e.g: 93 93)
+Line 2: minimum identity threshold, followed by the increments, followed by maximum identity threshold (e.g: 0 1 100)
+Line 3: input idenity matrix file
+Line 4: output file with the statistics of the analysis and network distances (last column of the output file)
+Line 5: resulting neighborhood matrix
+Line 6: resulting adjacency matrix
+
+After changing the "redecrit1mc13.dat" file, save and close it.
+
+### Step 2 - Compiling the program using ifort ###
+In the terminal you need to compile the program using the .dat file you just changed:
+$ ifort -O redecrit1mc13.for -o redecrit1mc13.exe
+
+This command creates the .exe program.
+
+### Step 3 - Running the program ###
+In the terminal type:
+$ ./redecrit1mc13.exe
+
+### Step 4 - Choosing the critical threshold ###
+Create a graph using the last column of the output file you wrote in the .dat file (line 4).
+This graph shows you wich network is the most distant from all the others and which threshold was used to obtain it.
+
+### Step 5 - Generating the chosen network ###
+When you run the program for the interval between 0 and 100 the resulting neighborhood and adjacency matrices store the data related to the last threshold used (100).
+Therefore, you need to rerun the analysis only for the chosen threshold. To do that you need to change the file in step 1 again.
+This time you only need to change line 2 making the minimum threshold as the chosen threshold, and changing the maximum threshold to '0' (e.g: 67 1 0)
+
+OPTIONAL: you can also change the output names you add in lines 4 through 6 in the .dat file to avoid confusion.
+
+Once you save and close the .dat file, perform steps 2 and 3 again.
+
+Finally, convert the adjacency matrix of the chosen threshold to the format read by the network visualization program of your preference.

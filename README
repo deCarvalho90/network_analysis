@@ -1,2 +1,4 @@
-The script was written by Roberto FS Andrade. Please refer and cite: Andrade et al, 2011.
+The fortran scripts 'redecritmc13.for' and 'redecritmc13.dat' was written by Roberto FS Andrade. Please refer and cite: Andrade et al, 2011.
 Paper: https://doi.org/10.1371/journal.pcbi.1001131
+
+The script 'metagen_net.py' uses transcript abundance data and plots a network based on gene functions with similar transcript abundance.
